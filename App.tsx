@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import SplashScreen from './react-src/Screens/SplashScreen'
 import LoginScreen from './react-src/Screens/LoginScreen/LoginScreen'
+import RegisterScreen from './react-src/Screens/RegisterScreen/RegisterScreen'
 import HomeScreen from './react-src/Screens/HomeScreen/HomeScreen'
 import config from './react-src/Config/config'
 
@@ -63,7 +64,10 @@ const App = () => {
                 ) : (
                     <>
                         {!isAuthenticated ? (
-                            <Stack.Screen name="Login" component={LoginScreen} />
+                            <>
+                                <Stack.Screen name="Login" component={LoginScreen} />
+                                <Stack.Screen name="Register" component={RegisterScreen} />
+                            </>
                         ) : (
                             <Stack.Screen name="Home" component={HomeScreen} />
                         )}

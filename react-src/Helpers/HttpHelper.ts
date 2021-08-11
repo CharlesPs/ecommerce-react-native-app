@@ -68,7 +68,7 @@ export const post = async (url: string, data: any, tag = '') => {
 
         console.log({ res })
 
-        if (res.status !== 200) {
+        if (res.status !== 200 && res.status !== 201) {
 
             const message = res.data.message || res.data
 

@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { actionLogin } from "../../Redux/Actions/SessionActions"
 
 import styles from "./LoginScreen.styles"
+import Colors from "../../Config/colors"
 
-const LoginScreen = () => {
+const LoginScreen = (props: any) => {
 
     const dispatch = useDispatch()
 
@@ -48,7 +49,14 @@ const LoginScreen = () => {
                 <Button
                     title="Login"
                     onPress={() => login()}
-                    color="#FF0000"
+                    color={Colors.Auth.PrimaryBtn}
+                />
+            </View>
+            <View style={styles.formRow}>
+                <Button
+                    title="Register"
+                    onPress={() => props.navigation.navigate('Register')}
+                    color={Colors.Auth.SecondaryBtn}
                 />
             </View>
             <View style={styles.formRow}>

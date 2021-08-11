@@ -14,6 +14,28 @@ export const getToken = async () => {
     }
 }
 
+export const register = async (name: string,
+                                email: string,
+                                password: string,
+                                password_confirmation: string) => {
+
+    const url = EndPoints.register
+
+    const data = { name, email, password, password_confirmation }
+
+    try {
+
+        const res_data: any = await post(url, data, 'SESSION_REGISTER')
+
+        await AsyncStorage.setItem('userToken', res_data.token)
+
+        return res_data
+    } catch (error) {
+
+        throw error
+    }
+}
+
 export const login = async (email: string, password: string) => {
 
     const url = EndPoints.login
@@ -47,6 +69,7 @@ export const logout = async () => {
 
 export default {
     getToken,
+    register,
     login,
     logout,
 }

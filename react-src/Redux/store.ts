@@ -10,7 +10,7 @@ const logger = (store: any) => (next: any) => (action: any) => {
 
     let res = next(action)
 
-    if (config.environment === 'development') {
+    if (action.type && config.environment === 'development') {
 
         console.log('STORE DISPATCH', {
             type: action.type,
