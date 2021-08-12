@@ -11,7 +11,7 @@ import SplashScreen from './react-src/Screens/SplashScreen'
 import LoginScreen from './react-src/Screens/LoginScreen/LoginScreen'
 import RegisterScreen from './react-src/Screens/RegisterScreen/RegisterScreen'
 import HomeScreen from './react-src/Screens/HomeScreen/HomeScreen'
-import config from './react-src/Config/config'
+import CartScreen from './react-src/Screens/CartScreen/CartScreen'
 
 const Stack = createNativeStackNavigator()
 const App = () => {
@@ -26,20 +26,14 @@ const App = () => {
 
     const [ sessionChecked, setSessionChecked ] = useState(false)
 
-    const getDefault = () => {
+    const getInitialRouteName = () => {
 
         if (!sessionChecked) {
 
             return 'Splash'
         } else {
 
-            if (!isAuthenticated) {
-
-                return 'Login'
-            } else {
-
-                return 'Home'
-            }
+            return 'Home'
         }
     }
 
@@ -58,18 +52,19 @@ const App = () => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={getDefault()} screenOptions={navigationOptions}>
+            <Stack.Navigator initialRouteName={getInitialRouteName()} screenOptions={navigationOptions}>
                 {!sessionChecked ? (
                     <Stack.Screen name="Splash" component={SplashScreen} />
                 ) : (
                     <>
+                        <Stack.Screen name="Home" component={HomeScreen} />
                         {!isAuthenticated ? (
                             <>
                                 <Stack.Screen name="Login" component={LoginScreen} />
                                 <Stack.Screen name="Register" component={RegisterScreen} />
                             </>
                         ) : (
-                            <Stack.Screen name="Home" component={HomeScreen} />
+                            <Stack.Screen name="Cart" component={CartScreen} />
                         )}
                     </>
                 )}

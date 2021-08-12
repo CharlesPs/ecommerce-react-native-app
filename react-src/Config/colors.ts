@@ -1,9 +1,12 @@
 
 const Colors = {
+    FormLabel: '#6b7795',
+    Border: '#d1d1d1',
     Auth: {
-        Background: '#87309c',
-        PrimaryBtn: '#ef146d',
-        SecondaryBtn: '#4150df',
+        Background: '#FFFFFF',
+        FormBorder: '#ededed',
+        PrimaryBtn: '#e1532b',
+        SecondaryBtn: '#af8f86',
     },
 }
 

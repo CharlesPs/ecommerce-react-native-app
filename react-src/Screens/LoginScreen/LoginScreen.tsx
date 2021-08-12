@@ -23,49 +23,51 @@ const LoginScreen = (props: any) => {
 
     return (
         <SafeAreaView style={styles.screen}>
-            <View style={styles.formRow}>
-                <Text style={styles.label}>
-                    Email
-                </Text>
-                <TextInput
-                    keyboardType="email-address"
-                    style={styles.textInput}
-                    value={email}
-                    onChangeText={(text: string) => setEmail(text)}
-                />
-            </View>
-            <View style={styles.formRow}>
-                <Text style={styles.label}>
-                    Password
-                </Text>
-                <TextInput
-                    secureTextEntry={true}
-                    style={styles.textInput}
-                    value={password}
-                    onChangeText={(text: string) => setPassword(text)}
-                />
-            </View>
-            <View style={styles.formRow}>
-                <Button
-                    title="Login"
-                    onPress={() => login()}
-                    color={Colors.Auth.PrimaryBtn}
-                />
-            </View>
-            <View style={styles.formRow}>
-                <Button
-                    title="Register"
-                    onPress={() => props.navigation.navigate('Register')}
-                    color={Colors.Auth.SecondaryBtn}
-                />
-            </View>
-            <View style={styles.formRow}>
-                <Text
-                    style={styles.forgotLink}
-                    onPress={() => login()}
-                >
-                    Forgot password?
-                </Text>
+            <View style={styles.form}>
+                <View style={styles.formRow}>
+                    <Text style={styles.label}>
+                        Email
+                    </Text>
+                    <TextInput
+                        keyboardType="email-address"
+                        style={styles.textInput}
+                        value={email}
+                        onChangeText={(text: string) => setEmail(text)}
+                    />
+                </View>
+                <View style={styles.formRow}>
+                    <Text style={styles.label}>
+                        Password
+                    </Text>
+                    <TextInput
+                        secureTextEntry={true}
+                        style={styles.textInput}
+                        value={password}
+                        onChangeText={(text: string) => setPassword(text)}
+                    />
+                </View>
+                <View style={styles.formRow}>
+                    <Button
+                        title="Login"
+                        onPress={() => login()}
+                        color={Colors.Auth.PrimaryBtn}
+                    />
+                </View>
+                <View style={styles.formRow}>
+                    <Button
+                        title="Register"
+                        onPress={() => props.navigation.navigate('Register')}
+                        color={Colors.Auth.SecondaryBtn}
+                    />
+                </View>
+                <View style={styles.formRow}>
+                    <Text
+                        style={styles.forgotLink}
+                        onPress={() => login()}
+                    >
+                        Forgot password?
+                    </Text>
+                </View>
             </View>
         </SafeAreaView>
     )
