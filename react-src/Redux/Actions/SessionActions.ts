@@ -37,7 +37,10 @@ export const actionRegister = (name: string,
 
             if (data.token) {
 
-                dispatch({ type: 'SESSION_START' })
+                dispatch({ type: 'SESSION_START', payload: {
+                    token: data.token
+                } })
+
                 dispatch({ type: 'ACCOUNT_SET_DATA', payload: {
                     name: data.user.name,
                     email: data.user.email,
@@ -60,7 +63,10 @@ export const actionLogin = (email: string, password: string) => {
 
             if (data.token) {
 
-                dispatch({ type: 'SESSION_START' })
+                dispatch({ type: 'SESSION_START', payload: {
+                    token: data.token
+                } })
+
                 dispatch({ type: 'ACCOUNT_SET_DATA', payload: {
                     name: data.user.name,
                     email: data.user.email,

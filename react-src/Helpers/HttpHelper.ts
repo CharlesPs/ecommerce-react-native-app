@@ -54,6 +54,39 @@ const onError = (apiStart: any, method: string, request_id: string, error: any) 
     console.log(`API ${method} ERROR`, `${diff} ms`, `Request Id: ${request_id}`, error)
 }
 
+export const get = async (url: string, tag = '') => {
+
+    const apiStart = moment()
+
+    const headers = await getHeaders()
+
+    try {
+
+        onRequest('GET', headers['X-REQUEST-ID'], { tag, url })
+
+        const res = await axios.get(url, { headers })
+
+        if (res.status !== 200 && res.status !== 201) {
+
+            const message = res.data.message || res.data
+
+            throw {
+                request_id: headers['X-REQUEST-ID'],
+                message,
+                status: res.status
+            }
+        } else {
+
+            onSuccess(apiStart, 'GET', headers['X-REQUEST-ID'], res)
+
+            return res.data
+        }
+    } catch (error) {
+
+        onError(apiStart, 'GET', headers['X-REQUEST-ID'], error)
+    }
+}
+
 export const post = async (url: string, data: any, tag = '') => {
 
     const apiStart = moment()

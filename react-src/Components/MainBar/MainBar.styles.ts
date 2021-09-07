@@ -5,6 +5,7 @@ import Colors from '../../Config/colors'
 
 const styles = StyleSheet.create({
     bar: {
+        backgroundColor: Colors.MainBar.Background,
         borderBottomColor: Colors.Border,
         borderBottomWidth: 1,
         borderStyle: 'solid',
