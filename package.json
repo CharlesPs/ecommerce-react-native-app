@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "win-android": "set ENVFILE=env_development.env && react-native run-android",
+    "unix-android": "ENVFILE=env_development.env react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
